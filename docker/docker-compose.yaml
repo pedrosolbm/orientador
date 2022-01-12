@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  database:
+    image: orientador-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: RootPassword
+      MYSQL_DATABASE: orientadordb
+      MYSQL_USER: MainUser
+      MYSQL_PASSWORD: MainPassword
+
+    volumes:
+      db-volume: /var/lib/mysql
+
+volumes:
+  db-volume:

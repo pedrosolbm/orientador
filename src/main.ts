@@ -16,7 +16,7 @@ async function bootstrap() {
 function readEnvFile() {
   const result = require('dotenv').config();
   if (result.error) {
-    Logger.log(result.error.message, 'Error');
+    Logger.log(result.error.message, logger);
   }
 }
 
