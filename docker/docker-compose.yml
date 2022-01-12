@@ -3,6 +3,7 @@ version: '3'
 services:
 
   database:
+    container_name: orientador-db
     image: orientador-db
     ports:
       - "3306:3306"
@@ -11,9 +12,8 @@ services:
       MYSQL_DATABASE: orientador
       MYSQL_USER: MainUser
       MYSQL_PASSWORD: MainPassword
-
     volumes:
-      db-volume: /var/lib/mysql
+      - /var/lib/mysql
 
 volumes:
   db-volume:

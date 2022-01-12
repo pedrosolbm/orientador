@@ -1,13 +1,12 @@
 USE orientador;
 
 CREATE TABLE IF NOT EXISTS roles(
-    role_id INTEGER NOT NULL AUTO_INCREMENT,
-    name VARCHAR(200) NOT NULL,
-    PRIMARY KEY (role_id)
+    role_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS users (
-    user_id INTEGER NOT NULL AUTO_INCREMENT,
+    user_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     is_active BOOLEAN NOT NULL,
     cpf VARCHAR(11) NOT NULL,
     name VARCHAR(200) NOT NULL,
@@ -15,18 +14,15 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(200) NOT NULL,
     phone BIGINT(11) NOT NULL,
     role_id INTEGER NOT NULL,
-    PRIMARY KEY (user_id),
     FOREIGN KEY (role_id) REFERENCES roles(role_id)
 );
 
-CREATE TABLE IF NOT EXISTS activities(
-    activity_id INTEGER NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS activities (
+    activity_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     description VARCHAR(200) NOT NULL,
-    deadline DATETIME DEFAULT 
-    
-)
-
+    deadline DATETIME 
+);
 
 SET character_set_client = utf8;
 SET character_set_connection = utf8;
